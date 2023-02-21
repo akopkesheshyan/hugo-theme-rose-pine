@@ -10,6 +10,10 @@ body {
   min-height: 100vh;
   font-size: 20px;
   line-height: 32px;
+  @media ($phone) {
+    font-size: 1rem;
+    line-height: 1.6rem;
+  }
 }
 
 a {
@@ -87,6 +91,7 @@ table {
 @for $i from 1 through 6 {
   h#{$i} {
     font-family: $fontHeader;
+    line-height: 1.4em;
   }
 }
 

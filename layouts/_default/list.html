@@ -22,8 +22,8 @@
             <!-- [html-validate-disable-next prefer-native-element] -->
             <div class="postListItem" role="listitem">
                 <div class="postHeader">
-                    <span class="postTitle">{{ .Title }}</span>
-                    <span class="postDate">{{ .Date.Format "January 2, 2006" }}</span>
+                    <div class="postTitle">{{ .Title }}</div>
+                    <div class="postDate">{{ .Date.Format "January 2, 2006" }}</div>
                 </div>
                 <div class="postExcerpt">
                     <p>{{ .Summary }}</p>

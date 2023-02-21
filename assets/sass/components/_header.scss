@@ -1,61 +1,112 @@
 @import "../utils/variables";
 
 .header {
-  font-family: $fontHeader;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  @media only screen and (min-width: $breakLarge) {
-    width: $width;
-  }
-}
-
-.headerWrapper {
   overflow: auto;
   box-sizing: border-box;
   background-color: $backgroundDarker;
   display: flex;
   justify-content: center;
   flex-shrink: 0;
+
+  .wrapper {
+    font-family: $fontHeader;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    @media only screen and (min-width: $breakLarge) {
+      width: $width;
+    }
+  }
+
   a {
     color: $text;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
   }
-}
 
-.headerLinks {
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    li {
-      display: inline;
-      margin: 5px;
-      a {
-        color: $subtle;
-        &.active{
-          color: $text;
+  .menu {
+    &-toggle {
+      display: none;
+      &:checked + .menu-items {
+        display: block;
+      }
+    }
+
+    &-trigger {
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      fill: $text;
+      margin-left: 10px;
+      cursor: pointer;
+      display: none;
+      @media ($phone) {
+        display: block;
+      }
+    }
+
+    &-items {
+      width: 100%;
+      @media ($phone) {
+        display: none;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @media ($phone) {
+          position: absolute;
+          background: $overlay;
+          padding: 10px 20px;
+          z-index: 99;
+          border: none;
+          top: 65px;
+          left: 0;
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        li {
+          display: inline;
+          margin: 5px;
+          @media ($phone) {
+            margin: 10px 0;
+          }
+
+          a {
+            color: $subtle;
+            &.active{
+              color: $text;
+            }
+          }
         }
       }
     }
   }
-}
 
-.terminal {
-  color: $text;
-  font-weight: bold;
-  text-decoration: none;
-}
+  .terminal {
+    color: $text;
+    font-weight: bold;
+    text-decoration: none;
+  }
 
-.cursor {
-  display: inline-block;
-  width: 10px;
-  height: 1.5rem;
-  margin-bottom: -0.3rem;
-  background: #fe5186;
-  animation: cursor 1s infinite;
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+    background: #fe5186;
+    animation: cursor 1s infinite;
+  }
 }
 
 @keyframes cursor {

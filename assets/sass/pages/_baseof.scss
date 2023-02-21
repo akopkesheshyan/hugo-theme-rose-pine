@@ -6,6 +6,10 @@
   flex: 1 auto;
   padding: 20px;
 
+  @media ($phone) {
+    margin: 0;
+  }
+
   @media only screen and (min-width: $breakLarge) {
     display: flex;
     width: $width;

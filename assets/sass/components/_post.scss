@@ -3,6 +3,9 @@
 .postDate {
   float: right;
   color: $text;
+  @media ($phone) {
+    float: left;
+  }
 }
 
 .postTitle {

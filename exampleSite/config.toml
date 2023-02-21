@@ -13,9 +13,9 @@ theme = "hugo-theme-rose-pine"
     url = "about"
 
 [params]
-author = "Hugo Rose Pine"
+author = "Rose Pine"
 user = "hello"
-hostname = "rose-pine.local"
+hostname = "rose.pine"
 
 [[params.social]]
 key = 0
