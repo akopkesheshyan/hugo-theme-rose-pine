@@ -3,8 +3,11 @@
 .postDate {
   float: right;
   color: $text;
+  text-align: left;
   @media ($phone) {
-    float: left;
+    float: none;
+    clear: both;
+    font-size: 0.9em;
   }
 }
 
