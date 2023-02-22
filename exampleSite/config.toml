@@ -1,6 +1,7 @@
 baseURL = 'http://gohugo.io/'
 languageCode = 'en-us'
 theme = "hugo-theme-rose-pine"
+paginate = 5
 
 [menu]
   [[menu.header]]

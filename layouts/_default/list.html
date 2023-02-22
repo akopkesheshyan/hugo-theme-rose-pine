@@ -16,7 +16,10 @@
     {{ end }}
 
     <div>
-        {{ range .Pages }}
+        {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "post") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
+        {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "post" }}
+        {{ $paginator := .Paginate (where .RegularPages "Type" $contentTypeName) }}
+        {{ range $paginator.Pages }}
 
         <a href="{{ .Permalink }}">
             <!-- [html-validate-disable-next prefer-native-element] -->
@@ -31,6 +34,26 @@
             </div>
         </a>
         {{end}}
+    </div>
+    <div class="pagination">
+      <div class="wrapper">
+        {{ if .Paginator.HasPrev }}
+          <span class="button previous">
+            <a href="{{ .Paginator.Prev.URL }}">
+              <span class="button-icon">←</span>
+              <span class="button-text">{{ $.Site.Params.NewerPosts | default "Newer posts" }}</span>
+            </a>
+          </span>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+          <span class="button next">
+            <a href="{{ .Paginator.Next.URL }}">
+              <span class="button-text">{{ $.Site.Params.OlderPosts | default "Older posts" }}</span>
+              <span class="button-icon">→</span>
+            </a>
+          </span>
+        {{ end }}
+      </div>
     </div>
 </div>
 
